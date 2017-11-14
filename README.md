@@ -6,7 +6,8 @@
   
 ## install
 
-$ npm install native-echarts --save
+$ npm install DuanYuna/react-native-echarts --save
+$ yarn add DuanYuna/react-native-echarts --save
 
 ## Usage
 
@@ -17,6 +18,7 @@ component props:
 * *option* (object): The option for echarts: [Documentation](http://echarts.baidu.com/option.html#title)。 
 * *width* (number): The width of the chart. The default value is the outer container width. 
 * *height* (number): The height of the chart. The default value is 400. 
+* *onPress* (function)各个节点的点击事件,可以获取到所有节点数据
 
 
 ```js
@@ -50,7 +52,9 @@ export default class app extends Component {
       }]
     };
     return (
-      <Echarts option={option} height={300} />
+      <Echarts option={option} height={300} onPress={data => {
+                        this.clickPieItem(data);
+                    }}/>
     );
   }
 }
